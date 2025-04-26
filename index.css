@@ -1,0 +1,91 @@
+:root {
+    --color-primario: #4B3621;
+    --color-secundario: #D2B48C;
+    --color-claro: #FFF8E1;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-claro);
+    padding-top: 80px; /* Para compensar navbar fija */
+}
+
+.navbar {
+    background-color: var(--color-primario)!important;
+    border-bottom: 3px solid var(--color-secundario);
+    padding: 0.5rem 0;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--color-secundario)!important;
+    margin-right: 2rem;
+}
+
+.nav-link {
+    color: var(--color-claro)!important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem!important;
+}
+
+.nav-link:hover {
+    color: var(--color-secundario)!important;
+    transform: translateY(-2px);
+}
+
+.hero-section {
+    background: linear-gradient(rgba(75, 54, 33, 0.7), rgba(75, 54, 33, 0.7)),
+                url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Carrusel personalizado */
+.carousel-item {
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+}
+
+.carousel-caption {
+    background: rgba(75, 54, 33, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+/* Spinners personalizados */
+.spinner-cafe .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-color: var(--color-secundario);
+    border-right-color: transparent;
+}
+
+/* Responsividad mejorada */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+    
+    .hero-section {
+        height: 60vh;
+    }
+    
+    .carousel-item {
+        height: 300px;
+    }
+    
+    .card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}
