@@ -1,28 +1,5 @@
 // Simulación de carga de productos con spinner
 document.addEventListener('DOMContentLoaded', function() {
-    const productos = [
-        {
-            nombre: "Café Arábica Premium",
-            descripcion: "Café de altura tostado medio con notas de chocolate y nuez.",
-            precio: "$12.99",
-            imagen: "https://via.placeholder.com/300x200"
-        },
-        {
-            nombre: "Café Robusta Intenso",
-            descripcion: "Café robusto con un sabor fuerte y cuerpo completo.",
-            precio: "$10.99",
-            imagen: "https://via.placeholder.com/300x200"
-        },
-        {
-            nombre: "Café Descafeinado Suave",
-            descripcion: "Café suave sin cafeína, ideal para cualquier momento del día.",
-            precio: "$11.49",
-            imagen: "https://via.placeholder.com/300x200"
-        }
-        // Agrega más productos según necesites
-    ];
-
-    const container = document.getElementById('productosContainer');
     const spinner = document.querySelector('.spinner-cafe');
 
     // Simular carga con retardo de 1.5 segundos
