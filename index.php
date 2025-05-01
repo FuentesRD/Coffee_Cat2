@@ -26,7 +26,7 @@ session_start();
             
             <div class="d-flex align-items-center order-lg-3 ms-auto">
                 <!-- Iconos siempre visibles -->
-                <a href="cuenta.php" class="nav-link nav-icon">
+                <a href="#" class="nav-link nav-icon">
                     <i class="bi bi-person"></i>
                     <span class="d-none d-lg-inline">Cuenta</span>
                 </a>
