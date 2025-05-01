@@ -1,0 +1,192 @@
+:root {
+    --color-primario: #4B3621;
+    --color-secundario: #D2B48C;
+    --color-claro: #FFF8E1;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-claro);
+    padding-top: 80px; /* Para compensar navbar fija */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-claro);
+}
+
+main {
+    flex: 1;
+    padding: 80px 0 2rem; /* Ajuste para navbar fija y espacio */
+}
+
+.navbar {
+    background-color: var(--color-primario)!important;
+    border-bottom: 3px solid var(--color-secundario);
+    padding: 0.5rem 0;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--color-secundario)!important;
+    margin-right: 2rem;
+}
+
+.nav-link {
+    color: var(--color-claro)!important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem!important;
+}
+
+.nav-link:hover {
+    color: var(--color-secundario)!important;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+    
+    .hero-section {
+        height: 60vh;
+    }
+    
+    .carousel-item {
+        height: 300px;
+    }
+    
+    .card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}
+
+.navbar {
+    box-shadow: 0 2px 10px rgba(75, 54, 33, 0.1);
+}
+
+.nav-icon {
+    font-size: 1.4rem;
+    position: relative;
+    margin-left: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.nav-icon .badge {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: #dc3545;
+    font-size: 0.7rem;
+}
+
+.nav-icon:hover {
+    color: var(--color-secundario)!important;
+    transform: translateY(-3px);
+}
+
+/* Mejoras en dropdown */
+.dropdown-menu {
+    background-color: var(--color-primario);
+    border: 1px solid var(--color-secundario);
+}
+
+.dropdown-item {
+    color: var(--color-claro)!important;
+}
+
+.dropdown-item:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-primario)!important;
+}
+
+/* Responsividad mejorada */
+@media (max-width: 992px) {
+    .nav-icon {
+        margin-left: 0;
+        margin-right: 1rem;
+    }
+    
+    .navbar-nav {
+        padding: 1rem 0;
+    }
+    
+    .dropdown-menu {
+        background-color: transparent;
+        border: none;
+    }
+}
+
+.auth-page main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 160px); /* Ajuste para footer */
+}
+
+/* Componentes de formulario */
+.auth-card {
+    background: rgba(255, 248, 225, 0.9);
+    border: 2px solid var(--color-secundario);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.coffee-label {
+    color: var(--color-primario);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.coffee-input {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid var(--color-secundario);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.coffee-input:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(210, 180, 140, 0.3);
+}
+
+.btn-coffee {
+    background: var(--color-primario);
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-coffee:hover {
+    background: #3a2819;
+    transform: translateY(-2px);
+}
+
+.coffee-link {
+    color: var(--color-primario);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.coffee-link:hover {
+    color: #3a2819;
+    text-decoration: underline;
+}
+
+/* Checkbox personalizado */
+.form-check-input:checked {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+}
