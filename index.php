@@ -52,13 +52,13 @@ session_start();
                             <i class="bi bi-shop-window me-1"></i>Productos
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">
+                            <li><a class="dropdown-item" href="grano.php">
                                 <i class="bi bi-cup-straw me-2"></i>Café en Grano
                             </a></li>
-                            <li><a class="dropdown-item" href="#">
-                                <i class="bi bi-mortarboard-fill me-2"></i>Café Molido
+                            <li><a class="dropdown-item" href="molido.php">
+                                <i class="bi bi-cup"></i>Café Molido
                             </a></li>
-                            <li><a class="dropdown-item" href="#">
+                            <li><a class="dropdown-item" href="accesorio.php">
                                 <i class="bi bi-funnel-fill me-2"></i>Accesorios
                             </a></li>
                         </ul>
@@ -98,19 +98,19 @@ session_start();
         </div>
         
         <div class="carousel-inner">
-            <div class="carousel-item active" style="background-image: url('https://via.placeholder.com/1920x500')">
+            <div class="carousel-item active" style="background-image: url('img/Iced_latte2.jpg')">
                 <div class="carousel-caption">
-                    <h3>Nueva Colección Otoño 2023</h3>
+                    <h3>Nueva Colección Verano 2025</h3>
                     <p>Descubre nuestros cafés de cosecha reciente</p>
                 </div>
             </div>
-            <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x500')">
+            <div class="carousel-item" style="background-image: url('img/Molinillo3.png')">
                 <div class="carousel-caption">
                     <h3>Equipo para Baristas</h3>
                     <p>Los mejores accesorios profesionales</p>
                 </div>
             </div>
-            <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x500')">
+            <div class="carousel-item" style="background-image: url('img/cafe_fondo3.jpg')">
                 <div class="carousel-caption">
                     <h3>Ofertas Especiales</h3>
                     <p>Hasta 40% de descuento en selección premium</p>
@@ -139,16 +139,18 @@ session_start();
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
                                 <i class="bi bi-star-fill text-warning me-2"></i>
-                                <h5 class="card-title mb-0">Café Arábica Premium</h5>
+                                <h5 class="card-title mb-0">Café En Grano M4 Espresso Robusta 2.5Kg</h5>
                             </div>
                             <p class="card-text">
-                                <i class="bi bi-globe me-2"></i>Origen: Colombia
+                                <i class="bi bi-globe me-2"></i>Origen: Veracruz-Chiapas
                             </p>
                             <p class="card-text">
-                                <i class="bi bi-thermometer-sun me-2"></i>Tueste: Medio
+                                <i class="bi bi-thermometer-sun me-2"></i>Productor: Punta del Cielo
                             </p>
-                            <p class="h4 text-primary">$12.99</p>
-                            <button class="btn btn-primary">
+                            <p class="h4 text-primary">$1300.00 MXN</p>
+                            <img src="https://puntadelcielo.com.mx/cdn/shop/products/CAFE-2.5-KG-MEZCLA-M4.png?v=1667204843" class="img-thumbnail mx-auto d-block w-50" alt="Café1">
+
+                            <button class="btn btn-primary my-2">
                                 <i class="bi bi-cart-plus me-2"></i>Añadir
                             </button>
                         </div>
@@ -161,16 +163,17 @@ session_start();
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
                                 <i class="bi bi-star-fill text-warning me-2"></i>
-                                <h5 class="card-title mb-0">Café Robusta Intenso</h5>
+                                <h5 class="card-title mb-0">Café Puro Tostado Grano Mezcla Tradicional 780g</h5>
                             </div>
                             <p class="card-text">
-                                <i class="bi bi-globe me-2"></i>Origen: Brasil
+                                <i class="bi bi-globe me-2"></i>Origen: Veracruz
                             </p>
                             <p class="card-text">
-                                <i class="bi bi-thermometer-sun me-2"></i>Tueste: Oscuro
+                                <i class="bi bi-thermometer-sun me-2"></i>Productor: La Parroquia
                             </p>
-                            <p class="h4 text-primary">$10.99</p>
-                            <button class="btn btn-primary">
+                            <p class="h4 text-primary">$359.99 MXN</p>
+                            <img src="img/cafe_parroquia2.png" class="img-thumbnail mx-auto d-block w-50" alt="Café2">
+                            <button class="btn btn-primary my-1">
                                 <i class="bi bi-cart-plus me-2"></i>Añadir
                             </button>
                         </div>
@@ -183,16 +186,17 @@ session_start();
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
                                 <i class="bi bi-star-fill text-warning me-2"></i>
-                                <h5 class="card-title mb-0">Descafeinado Natural</h5>
+                                <h5 class="card-title mb-0">Taster's Choice Descafeinado 190g</h5>
                             </div>
                             <p class="card-text">
-                                <i class="bi bi-globe me-2"></i>Origen: México
+                                <i class="bi bi-globe me-2"></i>Origen: Sudamerica
                             </p>
                             <p class="card-text">
-                                <i class="bi bi-thermometer-sun me-2"></i>Tueste: Claro
+                                <i class="bi bi-thermometer-sun me-2"></i>Productor: NESCAFÉ
                             </p>
-                            <p class="h4 text-primary">$14.99</p>
-                            <button class="btn btn-primary">
+                            <p class="h4 text-primary">$230.99 MXN</p>
+                            <img src="https://chedrauimx.vtexassets.com/arquivos/ids/46465152-1600-auto?v=638792574627770000&width=1600&height=auto&aspect=true" class="img-thumbnail mx-auto d-block w-50" alt="Café3">
+                            <button class="btn btn-primary my-2">
                                 <i class="bi bi-cart-plus me-2"></i>Añadir
                             </button>
                         </div>
@@ -211,20 +215,19 @@ session_start();
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5><i class="bi bi-clock me-2"></i>Horario</h5>
-                    <p>Lun-Vie: 9 AM - 7 PM</p>
+                    <p>Lun-Vie: 9 AM - 6 PM</p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5><i class="bi bi-telephone me-2"></i>Contacto</h5>
                     <p class="mb-0">contacto@cafedelmundo.com</p>
-                    <p>Tel: +52 55 1234 5678</p>
                 </div>
             </div>
             <div class="text-center pt-3 border-top">
                 <p class="mb-0">
                     Síguenos:
-                    <a href="#" class="text-white mx-2"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="text-white mx-2"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-white mx-2"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/elgatotroll330?igsh=M3NkZ2Rrb3ltcGJk" class="text-white mx-2"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/diego-fuentes-rub%C3%AD-95a4a9243/?trk=public-profile-join-page" class="text-white mx-2"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/FuentesRD" class="text-white mx-2"><i class="bi bi-github"></i></a>
                 </p>
             </div>
         </div>
