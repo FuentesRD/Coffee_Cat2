@@ -186,16 +186,6 @@ try {
                             </a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-info-circle me-1"></i>Nosotros
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-chat-dots me-1"></i>Contacto
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>

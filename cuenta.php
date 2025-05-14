@@ -131,9 +131,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['actualizar_info'])) {
                             <i class="bi bi-shop-window me-1"></i>Productos
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="grano.php">Café en Grano</a></li>
-                            <li><a class="dropdown-item" href="molido.php">Café Molido</a></li>
-                            <li><a class="dropdown-item" href="accesorio.php">Accesorios</a></li>
+                            <li><a class="dropdown-item" href="grano.php"><i class="bi bi-cup-straw me-2"></i>Café en Grano</a></li>
+                            <li><a class="dropdown-item" href="molido.php"><i class="bi bi-cup"></i>Café Molido</a></li>
+                            <li><a class="dropdown-item" href="accesorio.php"><i class="bi bi-funnel-fill me-2"></i>Accesorios</a></li>
                         </ul>
                     </li>
                     <?php if (isset($_SESSION['user_id'])): ?>
