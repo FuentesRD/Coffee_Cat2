@@ -1,0 +1,124 @@
+:root {
+            --color-primario: #4B3621;
+            --color-secundario: #D2B48C;
+            --color-claro: #FFF8E1;
+            --color-dark: #212529; 
+            --color-light-gray: #f8f9fa;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--color-light-gray);
+        }
+        .admin-sidebar {
+            background-color: var(--color-dark);
+            color: #dee2e6; 
+            min-height: 100vh;
+            padding-top: 1rem;
+            position: fixed; 
+            width: 250px; /* Ancho fijo para la sidebar */
+            height: 100%;
+            overflow-y: auto; 
+            z-index: 100; /* Para que esté por encima del contenido al colapsar */
+        }
+        .admin-sidebar .nav-link {
+            color: #adb5bd; 
+            padding: 0.75rem 1.25rem; 
+            border-left: 4px solid transparent; 
+            font-size: 0.95rem;
+        }
+        .admin-sidebar .nav-link:hover,
+        .admin-sidebar .nav-link.active {
+            background-color: rgba(255,255,255,0.05); 
+            border-left-color: var(--color-secundario);
+            color: var(--color-claro); 
+        }
+        .admin-sidebar .nav-link i {
+            margin-right: 0.75rem; 
+            width: 20px; 
+            text-align: center;
+        }
+        .admin-sidebar .admin-brand {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-secundario);
+            font-size: 1.6rem; 
+            padding: 0.75rem 1.25rem;
+            display: block;
+            text-align: center;
+            margin-bottom: 1.5rem; 
+            border-bottom: 1px solid #495057; 
+        }
+        .admin-content {
+            padding: 2rem;
+            margin-left: 250px; /* Mismo ancho que la sidebar */
+        }
+        
+        /* Estilos para el botón de toggle del menú en móviles */
+        .sidebar-toggler {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1030; /* Encima de la navbar si la navbar fuera fixed también */
+        }
+
+        @media (max-width: 767.98px) { 
+            .admin-sidebar {
+                /* Se oculta por defecto y se muestra con el botón */
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            .admin-sidebar.show {
+                transform: translateX(0);
+            }
+            .admin-content {
+                margin-left: 0;
+            }
+        }
+         @media (min-width: 768px) {
+            .sidebar-toggler {
+                display: none; /* Ocultar el botón de toggle en pantallas grandes */
+            }
+        }
+
+        .table img.product-thumb {
+            max-width: 50px; 
+            max-height: 50px;
+            object-fit: cover;
+            border-radius: 0.25rem;
+        }
+        .form-label { font-weight: 500; }
+        .card-header-custom {
+            background-color: var(--color-primario);
+            color: var(--color-claro);
+            font-family: 'Playfair Display', serif;
+        }
+        .btn-coffee {
+            background-color: var(--color-primario);
+            border-color: var(--color-primario);
+            color: var(--color-claro);
+        }
+        .btn-coffee:hover {
+            background-color: #3a2a1a;
+            border-color: #3a2a1a;
+            color: var(--color-claro);
+        }
+        .img-preview {
+            max-width: 120px; 
+            max-height: 120px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            padding: 3px;
+            background-color: #fff;
+        }
+        .table-hover tbody tr:hover {
+            background-color: rgba(0,0,0,0.04);
+        }
+        .historial-grupo {
+            margin-bottom: 2rem;
+            border: 1px solid #dee2e6;
+            border-radius: .375rem;
+        }
+        .historial-grupo-header {
+            background-color: #e9ecef;
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1px solid #dee2e6;
+        }
