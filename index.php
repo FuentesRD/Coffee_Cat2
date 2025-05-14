@@ -26,13 +26,12 @@ session_start();
             
             <div class="d-flex align-items-center order-lg-3 ms-auto">
                 <!-- Iconos siempre visibles -->
-                <a href="#" class="nav-link nav-icon">
-                    <i class="bi bi-person"></i>
+                <a href="cuenta.php" class="nav-link nav-icon">
+                    <i class="bi bi-person-circle"></i>
                     <span class="d-none d-lg-inline">Cuenta</span>
                 </a>
                 <a href="#" class="nav-link nav-icon">
                     <i class="bi bi-cart3"></i>
-                    <span class="badge rounded-pill">3</span>
                     <span class="d-none d-lg-inline">Carrito</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

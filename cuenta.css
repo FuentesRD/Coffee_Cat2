@@ -1,147 +1,85 @@
+/* assets/css/cuenta.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-claro, #FFF8E1);
+    padding-top: 70px; /* Ajustar según la altura de tu navbar */
+}
+
 :root {
     --color-primario: #4B3621;
     --color-secundario: #D2B48C;
     --color-claro: #FFF8E1;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--color-claro);
-    padding-top: 80px; /* Para compensar navbar fija */
+    --color-texto-oscuro: #333;
 }
 
 .navbar {
-    background-color: var(--color-primario)!important;
+    background-color: var(--color-primario) !important;
     border-bottom: 3px solid var(--color-secundario);
-    padding: 0.5rem 0;
 }
 
 .navbar-brand {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
-    color: var(--color-secundario)!important;
-    margin-right: 2rem;
+    color: var(--color-secundario) !important;
 }
 
 .nav-link {
-    color: var(--color-claro)!important;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem!important;
+    color: var(--color-claro) !important;
 }
-
-.nav-link:hover {
-    color: var(--color-secundario)!important;
-    transform: translateY(-2px);
+.nav-link.active, .nav-link:hover {
+    color: var(--color-secundario) !important;
 }
-
-.hero-section {
-    background: linear-gradient(rgba(75, 54, 33, 0.7), rgba(75, 54, 33, 0.7)),
-                url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
-    background-size: cover;
-    background-position: center;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-}
-
-/* Carrusel personalizado */
-.carousel-item {
-    height: 500px;
-    background-position: center;
-    background-size: cover;
-}
-
-.carousel-caption {
-    background: rgba(75, 54, 33, 0.8);
-    padding: 2rem;
-    border-radius: 10px;
-}
-
-/* Spinners personalizados */
-.spinner-cafe .spinner-border {
-    width: 3rem;
-    height: 3rem;
-    border-color: var(--color-secundario);
-    border-right-color: transparent;
-}
-
-/* Responsividad mejorada */
-@media (max-width: 768px) {
-    .navbar-brand {
-        font-size: 1.4rem;
-    }
-    
-    .hero-section {
-        height: 60vh;
-    }
-    
-    .carousel-item {
-        height: 300px;
-    }
-    
-    .card {
-        margin-bottom: 1.5rem;
-    }
-    
-    .btn {
-        width: 100%;
-        margin-top: 0.5rem;
-    }
-}
-
-.navbar {
-    box-shadow: 0 2px 10px rgba(75, 54, 33, 0.1);
-}
-
-.nav-icon {
-    font-size: 1.4rem;
-    position: relative;
-    margin-left: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.nav-icon .badge {
-    position: absolute;
-    top: -8px;
-    right: -12px;
-    background-color: #dc3545;
-    font-size: 0.7rem;
-}
-
-.nav-icon:hover {
-    color: var(--color-secundario)!important;
-    transform: translateY(-3px);
-}
-
-/* Mejoras en dropdown */
 .dropdown-menu {
     background-color: var(--color-primario);
-    border: 1px solid var(--color-secundario);
+    border-color: var(--color-secundario);
 }
-
 .dropdown-item {
-    color: var(--color-claro)!important;
+    color: var(--color-claro) !important;
 }
-
 .dropdown-item:hover {
     background-color: var(--color-secundario);
-    color: var(--color-primario)!important;
+    color: var(--color-primario) !important;
 }
 
-/* Responsividad mejorada */
-@media (max-width: 992px) {
-    .nav-icon {
-        margin-left: 0;
-        margin-right: 1rem;
-    }
-    
-    .navbar-nav {
-        padding: 1rem 0;
-    }
-    
-    .dropdown-menu {
-        background-color: transparent;
-        border: none;
-    }
+
+.page-cuenta {
+    padding-top: 2rem; /* Espacio desde la navbar */
+    padding-bottom: 3rem;
+}
+
+.page-cuenta .card {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+}
+
+.page-cuenta .card-header h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primario);
+    margin-bottom: 0;
+}
+
+.page-cuenta .list-group-item.active {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+.page-cuenta .list-group-item-action:hover, 
+.page-cuenta .list-group-item-action:focus {
+    background-color: #f8f9fa; /* Un gris claro para hover */
+    color: var(--color-primario);
+}
+
+.btn-coffee {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    color: var(--color-claro);
+}
+
+.btn-coffee:hover {
+    background-color: #3a2a1a;
+    border-color: #3a2a1a;
+    color: var(--color-claro);
+}
+
+footer.bg-dark {
+    margin-top: auto; /* Empujar el footer hacia abajo */
 }

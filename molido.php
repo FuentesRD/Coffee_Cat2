@@ -1,7 +1,7 @@
 <?php
 // Start the session
 session_start();
-require 'conexionDBinfo.php'; // Asegúrate que este archivo conecta a la DB 'cafe' y crea $pdo
+require 'conexion.php'; // Asegúrate que este archivo conecta a la DB 'cafe' y crea $pdo
 
 // --- Configuración ---
 $producto_por_pagina = 6; // Productos a mostrar por página
@@ -146,12 +146,12 @@ try {
             
             <div class="d-flex align-items-center order-lg-3 ms-auto">
                 <a href="#" class="nav-link nav-icon">
-                    <i class="bi bi-person"></i>
+                    <i class="bi bi-person-circle"></i>
                     <span class="d-none d-lg-inline">Cuenta</span>
                 </a>
                 <a href="#" class="nav-link nav-icon">
                     <i class="bi bi-cart3"></i>
-                    <span class="badge rounded-pill">3</span> <span class="d-none d-lg-inline">Carrito</span>
+                    <span class="d-none d-lg-inline">Carrito</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>

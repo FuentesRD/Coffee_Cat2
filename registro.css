@@ -190,3 +190,7 @@ main {
     background-color: var(--color-primario);
     border-color: var(--color-primario);
 }
+
+.auth-card .display-4 {
+    color: var(--color-secundario) !important; /* Color del ícono de taza */
+}
