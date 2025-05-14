@@ -21,6 +21,11 @@ $total_paginas = 0;
 $origenes_disponibles = []; // Para filtro dinámico
 $debug_sql = ''; // Para depuración
 $debug_params = []; // Para depuración
+$mensaje_flash = null; 
+if (isset($_SESSION['flash_message'])) {
+    $mensaje_flash = $_SESSION['flash_message'];
+    unset($_SESSION['flash_message']);
+}
 
 try {
     // --- Obtener Orígenes Disponibles para Filtros ---
@@ -145,13 +150,15 @@ try {
             </a>
             
             <div class="d-flex align-items-center order-lg-3 ms-auto">
-                <a href="#" class="nav-link nav-icon">
+                <a href="cuenta.php" class="nav-link nav-icon">
                     <i class="bi bi-person-circle"></i>
                     <span class="d-none d-lg-inline">Cuenta</span>
                 </a>
-                <a href="#" class="nav-link nav-icon">
-                    <i class="bi bi-cart3"></i>
-                    <span class="d-none d-lg-inline">Carrito</span>
+                <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'carrito.php') ? 'active' : ''; ?>" href="carrito.php">
+                    <i class="bi bi-cart3"></i>Carrito
+                    <span id="cart-badge-count" class="badge rounded-pill bg-danger">
+                        <?php echo $_SESSION['cart_item_count'] ?? 0; ?>
+                    </span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -195,9 +202,15 @@ try {
     </nav>
 
 
-    <main class="container mt-4 mb-5">
+    <main class="container mt-5 pt-4 mb-5">
+        <?php if ($mensaje_flash): ?>
+            <div class="alert alert-<?php echo htmlspecialchars($mensaje_flash['tipo']); ?> alert-dismissible fade show mt-3" role="alert">
+                <?php echo htmlspecialchars($mensaje_flash['mensaje']); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+        
         <div class="row">
-
             <aside class="col-lg-3 mb-4">
                  <div class="sticky-top" style="top: 100px;"> <h4><i class="bi bi-funnel"></i> Filtrar Productos</h4>
                     <hr>
@@ -303,12 +316,16 @@ try {
                                             </span>
                                         </p>
                                         <div class="mt-2 d-grid gap-2 d-sm-flex justify-content-sm-between">
-                                            <a href="producto_detalle.php?id=<?php echo $producto['id_prod']; ?>" class="btn btn-outline-secondary btn-sm flex-grow-1">
-                                                 <i class="bi bi-eye"></i> Ver
-                                            </a>
-                                             <button class="btn btn-primary btn-sm flex-grow-1 <?php echo $producto['cantidad_alm'] <= 0 ? 'disabled' : ''; ?>"
-                                                     onclick="addToCart(<?php echo $producto['id_prod']; ?>)"> <i class="bi bi-cart-plus"></i> Añadir
-                                             </button>
+                                            <form action="logica_carrito.php" method="POST" class="d-grid">
+                                                <input type="hidden" name="action" value="agregar_al_carrito">
+                                                <input type="hidden" name="id_prod" value="<?php echo $producto['id_prod']; ?>">
+                                                <input type="hidden" name="cantidad" value="1"> <input type="hidden" name="pagina_retorno" value="<?php echo htmlspecialchars($_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING']); ?>">
+
+                                                <button type="submit" class="btn btn-primary btn-sm <?php echo $producto['cantidad_alm'] <= 0 ? 'disabled' : ''; ?>" 
+                                                        <?php echo $producto['cantidad_alm'] <= 0 ? 'disabled' : ''; ?>>
+                                                    <i class="bi bi-cart-plus"></i> Añadir
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -375,12 +392,6 @@ try {
         </div> 
     </main> 
     
-    <script>
-        function addToCart(productId) {
-            console.log("Añadir al carrito producto ID:", productId);
-            alert("Producto " + productId + " añadido (simulación)");
-        }
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>

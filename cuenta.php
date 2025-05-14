@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['actualizar_info'])) {
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="grano.php">Café en Grano</a></li>
                             <li><a class="dropdown-item" href="molido.php">Café Molido</a></li>
-                            <li><a class="dropdown-item" href="accesorios.php">Accesorios</a></li>
+                            <li><a class="dropdown-item" href="accesorio.php">Accesorios</a></li>
                         </ul>
                     </li>
                     <?php if (isset($_SESSION['user_id'])): ?>
@@ -152,8 +152,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['actualizar_info'])) {
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-cart3 me-1"></i>Carrito 
-                             <span class="badge rounded-pill bg-danger">0</span> </a>
+                        <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'carrito.php') ? 'active' : ''; ?>" href="carrito.php">
+                            <i class="bi bi-cart3 me-1"></i>Carrito 
+                            <span id="cart-badge-count" class="badge rounded-pill bg-danger">
+                                <?php echo $_SESSION['cart_item_count'] ?? 0; ?>
+                            </span>
+                        </a>
                     </li>
                 </ul>
             </div>

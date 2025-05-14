@@ -30,9 +30,11 @@ session_start();
                     <i class="bi bi-person-circle"></i>
                     <span class="d-none d-lg-inline">Cuenta</span>
                 </a>
-                <a href="#" class="nav-link nav-icon">
-                    <i class="bi bi-cart3"></i>
-                    <span class="d-none d-lg-inline">Carrito</span>
+                <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'carrito.php') ? 'active' : ''; ?>" href="carrito.php">
+                    <i class="bi bi-cart3 me-1"></i>Carrito
+                    <span id="cart-badge-count" class="badge rounded-pill bg-danger">
+                        <?php echo $_SESSION['cart_item_count'] ?? 0; ?>
+                    </span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -85,7 +87,7 @@ session_start();
                 Descubre el Auténtico Sabor del Café
             </h1>
             <p class="lead mb-4">Cafés premium de origen único tostado artesanal</p>
-            <a href="#" class="btn btn-lg btn-outline-light">Ver Productos</a>
+            <a href="grano.php" class="btn btn-lg btn-outline-light">Ver Productos</a>
         </div>
     </header>
 
@@ -149,8 +151,8 @@ session_start();
                             <p class="h4 text-primary">$1300.00 MXN</p>
                             <img src="https://puntadelcielo.com.mx/cdn/shop/products/CAFE-2.5-KG-MEZCLA-M4.png?v=1667204843" class="img-thumbnail mx-auto d-block w-50" alt="Café1">
 
-                            <button class="btn btn-primary my-2">
-                                <i class="bi bi-cart-plus me-2"></i>Añadir
+                            <button class="btn btn-light my-2 d-block mx-auto">
+                                <a href="grano.php"><i class="bi bi-cart-plus me-2"></i>Explorar</a>
                             </button>
                         </div>
                     </div>
@@ -172,8 +174,8 @@ session_start();
                             </p>
                             <p class="h4 text-primary">$359.99 MXN</p>
                             <img src="img/cafe_parroquia2.png" class="img-thumbnail mx-auto d-block w-50" alt="Café2">
-                            <button class="btn btn-primary my-1">
-                                <i class="bi bi-cart-plus me-2"></i>Añadir
+                            <button class="btn btn-light my-1 d-block mx-auto">
+                                <a href="grano.php"><i class="bi bi-cart-plus me-2"></i>Explorar</a>
                             </button>
                         </div>
                     </div>
@@ -195,8 +197,8 @@ session_start();
                             </p>
                             <p class="h4 text-primary">$230.99 MXN</p>
                             <img src="https://chedrauimx.vtexassets.com/arquivos/ids/46465152-1600-auto?v=638792574627770000&width=1600&height=auto&aspect=true" class="img-thumbnail mx-auto d-block w-50" alt="Café3">
-                            <button class="btn btn-primary my-2">
-                                <i class="bi bi-cart-plus me-2"></i>Añadir
+                            <button class="btn btn-light my-2 d-block mx-auto">
+                                <a href="molido.php"><i class="bi bi-cart-plus me-2"></i>Explorar</a>
                             </button>
                         </div>
                     </div>

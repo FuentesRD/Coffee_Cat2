@@ -21,37 +21,48 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (\PDOException $e) {
-    // En un entorno de producción, loggear este error y mostrar un mensaje genérico.
-    // No exponer detalles de la excepción al usuario.
     error_log("Error de conexión a la BD: " . $e->getMessage());
     die("No se pudo conectar a la base de datos. Por favor, inténtalo más tarde.");
 }
 
 // Lógica para "Recordarme" usando cookies
-// Esto se ejecuta si el usuario no tiene una sesión activa pero sí tiene una cookie 'remember_me'.
 if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me'])) {
     $cookie_data = json_decode($_COOKIE['remember_me'], true);
 
-    // Validación básica de la cookie (en un sistema real, el token debería validarse contra la BD)
     if (isset($cookie_data['user_id']) && isset($cookie_data['token'])) {
-        // Aquí, idealmente, buscarías el usuario Y validarías el token contra uno almacenado en la BD
-        // Por simplicidad para este proyecto, solo usamos el user_id.
-        $stmt = $pdo->prepare("SELECT * FROM usuario WHERE id_usuario = ?");
-        $stmt->execute([$cookie_data['user_id']]);
-        $user = $stmt->fetch();
+        // En un sistema real, validar $cookie_data['token'] contra la BD
+        $stmt_cookie_user = $pdo->prepare("SELECT * FROM usuario WHERE id_usuario = :id_usuario_cookie"); // Usar placeholder nombrado
+        $stmt_cookie_user->execute([':id_usuario_cookie' => $cookie_data['user_id']]);
+        $user_from_cookie = $stmt_cookie_user->fetch();
         
-        if ($user) {
-            // Si el usuario existe, recreamos la sesión.
-            $_SESSION['user_id'] = $user['id_usuario'];
-            $_SESSION['user_nombre'] = $user['nombre_usuario']; // Guardar también el nombre para fácil acceso
-            $_SESSION['user_email'] = $user['email'];
+        if ($user_from_cookie) {
+            $_SESSION['user_id'] = $user_from_cookie['id_usuario'];
+            $_SESSION['user_nombre'] = $user_from_cookie['nombre_usuario'];
+            $_SESSION['user_email'] = $user_from_cookie['email'];
         } else {
-            // Si el user_id de la cookie no es válido, o el token no coincide (en un sistema más seguro),
-            // se debería eliminar la cookie.
-            setcookie('remember_me', '', time() - 3600, "/"); // Borrar cookie
+            setcookie('remember_me', '', time() - 3600, "/"); 
         }
     } else {
-         setcookie('remember_me', '', time() - 3600, "/"); // Cookie malformada, borrarla
+         setcookie('remember_me', '', time() - 3600, "/");
     }
 }
+
+// --- CÓDIGO CORREGIDO PARA EL CONTADOR DEL CARRITO ---
+// Inicializar/Actualizar contador de ítems en el carrito en la sesión
+if (isset($_SESSION['user_id'])) {
+    try {
+        // La columna en la tabla carrito se llama 'usuario' (no 'id_usuario')
+        // y el valor que tenemos en $_SESSION['user_id'] es el que corresponde a usuario.id_usuario
+        $stmt_cart_count_init = $pdo->prepare("SELECT SUM(cantidad) as total_items FROM carrito WHERE usuario = :id_usuario_en_sesion");
+        $stmt_cart_count_init->execute([':id_usuario_en_sesion' => $_SESSION['user_id']]); // Usar el ID de usuario de la sesión
+        $cart_data_init = $stmt_cart_count_init->fetch();
+        $_SESSION['cart_item_count'] = (int)($cart_data_init['total_items'] ?? 0);
+    } catch (PDOException $e) {
+        error_log("Error al obtener conteo del carrito en conexion.php: " . $e->getMessage());
+        $_SESSION['cart_item_count'] = 0; // Default a 0 en caso de error
+    }
+} else {
+    $_SESSION['cart_item_count'] = 0; // Si no hay usuario logueado, el carrito tiene 0 ítems.
+}
+// --- FIN: CÓDIGO CORREGIDO PARA EL CONTADOR DEL CARRITO ---
 ?>

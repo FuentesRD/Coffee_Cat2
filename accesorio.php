@@ -143,13 +143,15 @@ try {
             </a>
             
             <div class="d-flex align-items-center order-lg-3 ms-auto">
-                <a href="#" class="nav-link nav-icon">
+                <a href="cuenta.php" class="nav-link nav-icon">
                     <i class="bi bi-person-circle"></i>
                     <span class="d-none d-lg-inline">Cuenta</span>
                 </a>
-                <a href="#" class="nav-link nav-icon">
-                    <i class="bi bi-cart3"></i>
-                    </span> <span class="d-none d-lg-inline">Carrito</span>
+                <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'carrito.php') ? 'active' : ''; ?>" href="carrito.php">
+                    <i class="bi bi-cart3"></i>Carrito
+                    <span id="cart-badge-count" class="badge rounded-pill bg-danger">
+                        <?php echo $_SESSION['cart_item_count'] ?? 0; ?>
+                    </span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -314,12 +316,16 @@ try {
                                             </span>
                                         </p>
                                         <div class="mt-2 d-grid gap-2 d-sm-flex justify-content-sm-between">
-                                            <a href="producto_detalle.php?id=<?php echo $producto['id_prod']; ?>" class="btn btn-outline-secondary btn-sm flex-grow-1">
-                                                 <i class="bi bi-eye"></i> Ver
-                                            </a>
-                                             <button class="btn btn-primary btn-sm flex-grow-1 <?php echo $producto['cantidad_alm'] <= 0 ? 'disabled' : ''; ?>"
-                                                     onclick="addToCart(<?php echo $producto['id_prod']; ?>)"> <i class="bi bi-cart-plus"></i> Añadir
-                                             </button>
+                                            <form action="logica_carrito.php" method="POST" class="d-grid">
+                                                <input type="hidden" name="action" value="agregar_al_carrito">
+                                                <input type="hidden" name="id_prod" value="<?php echo $producto['id_prod']; ?>">
+                                                <input type="hidden" name="cantidad" value="1"> <input type="hidden" name="pagina_retorno" value="<?php echo htmlspecialchars($_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING']); ?>">
+
+                                                <button type="submit" class="btn btn-primary btn-sm <?php echo $producto['cantidad_alm'] <= 0 ? 'disabled' : ''; ?>" 
+                                                        <?php echo $producto['cantidad_alm'] <= 0 ? 'disabled' : ''; ?>>
+                                                    <i class="bi bi-cart-plus"></i> Añadir
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
